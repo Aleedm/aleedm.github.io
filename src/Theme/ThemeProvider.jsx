@@ -1,11 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import {
   ThemeProvider as MuiThemeProvider,
   createTheme,
 } from "@mui/material/styles";
 import ThemeContext from "./ThemeContext";
 import CssBaseline from "@mui/material/CssBaseline";
-import { green } from "@mui/material/colors";
 
 const ThemeProvider = ({ children }) => {
   const [mode, setThemeMode] = useState("light");

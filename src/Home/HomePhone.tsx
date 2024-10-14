@@ -1,11 +1,11 @@
-import { Avatar, Box, Divider, Link, List, ListItem, ListItemAvatar, ListItemText, Paper, Typography } from '@mui/material';
+import { Avatar, Box, Divider, Link, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import ThemeContext from '../Theme/ThemeContext';
 import { useContext } from 'react';
 import { useTheme } from '@mui/material/styles';
 const HomePhone = () => {
     const theme = useTheme();
-    const { mode, toggleTheme } = useContext(ThemeContext);
+    const { mode } = useContext(ThemeContext);
     return (
         <>
             <Box marginTop={3}>
@@ -40,6 +40,7 @@ const HomePhone = () => {
                                                 objectPosition: '50% 10%',
                                                 borderRadius: '50%'
                                             }}
+                                            alt=""
                                         />
                                     </Box>
                                 </Grid>

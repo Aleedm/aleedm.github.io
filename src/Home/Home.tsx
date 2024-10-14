@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { useTheme } from '@mui/material/styles';
 const Home = () => {
     const theme = useTheme();
-    const { mode, toggleTheme } = useContext(ThemeContext);
+    const { mode } = useContext(ThemeContext);
     const isMd = useMediaQuery(theme.breakpoints.only('md'));
     return (
         <>
@@ -41,6 +41,7 @@ const Home = () => {
                                                 objectPosition: '50% 10%',
                                                 borderRadius: '50%'
                                             }}
+                                            alt=""
                                         />
                                     </Box>
                                 </Grid>
