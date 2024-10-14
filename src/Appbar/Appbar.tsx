@@ -16,9 +16,7 @@ const Appbar = () => {
             >
                 <Toolbar>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <ThemeToggleButton />
-                    </Box>
                 </Toolbar>
             </AppBar>
         </>

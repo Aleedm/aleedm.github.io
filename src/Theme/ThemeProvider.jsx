@@ -5,9 +5,10 @@ import {
 } from "@mui/material/styles";
 import ThemeContext from "./ThemeContext";
 import CssBaseline from "@mui/material/CssBaseline";
+import { green } from "@mui/material/colors";
 
 const ThemeProvider = ({ children }) => {
-  const [mode, setThemeMode] = useState("dark");
+  const [mode, setThemeMode] = useState("light");
 
   const toggleTheme = React.useMemo(
     () => ({
@@ -23,6 +24,11 @@ const ThemeProvider = ({ children }) => {
       createTheme({
         palette: {
           mode,
+          secondary: {
+            main: "#4caf50",
+            dark: "#357a38",
+            light: "#6fbf73",
+          },
         },
       }),
     [mode]
