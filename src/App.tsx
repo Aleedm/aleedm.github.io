@@ -2,7 +2,7 @@ import './App.css';
 import Appbar from './Appbar/Appbar';
 import Home from './Home/Home';
 import HomePhone from './Home/HomePhone';
-import ThemeProvider from './Theme/ThemeProvider';
+import ThemeProvider from './Theme/ThemeProviderStatic';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 

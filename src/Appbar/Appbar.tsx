@@ -3,7 +3,7 @@ import {
     Box,
     Toolbar,
 } from "@mui/material";
-import ThemeToggleButton from "../Theme/ThemeToggleButton";
+import ThemeToggleButton from "../Theme/ThemeToggleButtonStatic";
 
 const Appbar = () => {
 
@@ -16,7 +16,7 @@ const Appbar = () => {
             >
                 <Toolbar>
                     <Box sx={{ flexGrow: 1 }} />
-                        <ThemeToggleButton />
+                    <ThemeToggleButton />
                 </Toolbar>
             </AppBar>
         </>

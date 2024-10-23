@@ -11,7 +11,15 @@ const ThemeToggleButton = ({ displayAsText = false }) => {
         </Button>) :
         (<IconButton sx={{ ml: 1 }} onClick={toggleTheme.toggleColorMode} color="inherit">
             {/* {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />} */}
-            {mode === 'dark' ? "☀️" : "🌙"}
+            {/* {mode === 'dark' ? "☀️" : "🌙"} */}
+            <div
+                style={{
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    backgroundColor: mode === 'dark' ? '#fff' : '#121212',
+                }}
+            />
         </IconButton>)
     );
 };
