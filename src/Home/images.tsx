@@ -11,10 +11,8 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
   };
 }
 
-export default function QuiltedImageList() {
+export default function QuiltedImageList({ totalItems = 22, totalLargeItems = 4, itemForCols = 4 }) {
   const itemData = [];
-  const totalItems = 22;
-  const totalLargeItems = 4;
   for (let i = 1; i <= totalItems; i++) {
     const tempItem = {
       img: `/salento/${i}.jpeg`,
@@ -67,14 +65,14 @@ export default function QuiltedImageList() {
 
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
-  
-  const rowHeight = dimensions.width / 4; 
+
+  const rowHeight = dimensions.width / itemForCols;
 
   return (
     <ImageList
       sx={{ width: dimensions.width, height: dimensions.height }}
       variant="quilted"
-      cols={4}
+      cols={itemForCols}
       rowHeight={rowHeight}
     >
       {itemData.map((item) => (

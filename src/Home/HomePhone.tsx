@@ -1,11 +1,46 @@
-import { Avatar, Box, Divider, Link, Paper, Typography } from '@mui/material';
+import { Avatar, Backdrop, Box, Divider, Link, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import ThemeContext from '../Theme/ThemeContext';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
+import { getUnit } from './utils';
+import QuiltedImageList from './images';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 const HomePhone = () => {
+    const [openGif, setOpenGif] = useState(false);
+    const [unit, setUnit] = useState('cm');
+    const [openImages, setOpenImages] = useState(false);
+
+    const handleCloseGif = () => {
+        setOpenGif(false);
+        document.body.style.overflow = 'auto';
+        document.body.style.cursor = 'default';
+    };
+    const handleOpenGif = () => {
+        setOpenGif(true);
+        document.body.style.overflow = 'hidden';
+        document.body.style.cursor = 'pointer';
+    };
+    const handleCloseImages = () => {
+        setOpenImages(false);
+        document.body.style.overflow = 'auto';
+        document.body.style.cursor = 'default';
+    };
+    const handleOpenImages = () => {
+        setOpenImages(true);
+        document.body.style.overflow = 'hidden';
+        document.body.style.cursor = 'pointer';
+    };
     const theme = useTheme();
     const { mode } = useContext(ThemeContext);
+
+    useEffect(() => {
+        const fetchUnit = async () => {
+            const unitOfMeasure = await getUnit();
+            setUnit(unitOfMeasure);
+        };
+        fetchUnit();
+    }, []);
     return (
         <>
             <Box marginTop={3}>
@@ -13,9 +48,7 @@ const HomePhone = () => {
                     <Grid size={1}>
                     </Grid>
                     <Grid size={10} alignContent="center" px={2}>
-                        <Paper
-                            elevation={0}
-                        >
+                        <Paper elevation={0}>
                             <Grid container>
                                 <Grid size={12} >
                                     <Box
@@ -40,15 +73,110 @@ const HomePhone = () => {
                                                 objectPosition: '50% 10%',
                                                 borderRadius: '50%'
                                             }}
+                                            loading="lazy"
                                             alt=""
                                         />
                                     </Box>
                                 </Grid>
-                                <Grid size={12} py={2}>
+                                <Grid size={12} pt={2} pb={1}>
                                     <Typography variant="h3" align="center">Alessandro De Marco</Typography>
-                                    <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textDisabled">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textDisabled">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textDisabled">LinkedIn</Link>]</Typography>
+                                    <Typography align='center' variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textDisabled">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textDisabled">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textDisabled">LinkedIn</Link>]</Typography>
+                                </Grid>
+                                <Grid size={12} pb={2}>
                                     <Typography variant="body1" align='justify'>I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/">Politecnico di Torino</Link>. Additionally, I am a graduate researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, working with <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. Before that, I received my bachelor's degree in Computer Science from the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
                                 </Grid>
+                                <Grid size={12} py={2}>
+                                    <Typography align='justify'>I'm from a stunning corner of Italy called <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} color="textSecondary" onClick={handleOpenImages}>Salento</Link>, where the sun, sea, and wind (lu sule, lu mare, lu ientu) are basically part of our DNA. True to the stereotype, I’m into just about everything: I’ve tried surfing, kite surfing, and snowboarding, and I’ve mastered the art of gracefully wiping out and getting back up. I also have a love for hiking and climbing. Below, you’ll see an excellent example of my skills in action!</Typography>
+                                </Grid>
+
+                                <Grid size={12} pt={2}>
+                                    <Box
+                                        display="flex"
+                                        justifyContent="center"
+                                        alignItems="center"
+                                        width="100%"
+                                        height="0"
+                                        paddingTop="100%"
+                                        position="relative"
+                                    >
+                                        <img
+                                            src='/falling_down.jpg'
+                                            style={{
+                                                position: 'absolute',
+                                                top: '50%',
+                                                transform: 'translateY(-50%)',
+                                                left: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                                objectFit: 'cover',
+                                                objectPosition: '50% 10%',
+                                                borderRadius: '50%',
+                                                cursor: 'pointer'
+                                            }}
+                                            alt=""
+                                            onMouseOver={(e) => e.currentTarget.src = '/falling_down.gif'}
+                                            onMouseOut={(e) => e.currentTarget.src = '/falling_down.jpg'}
+                                            onClick={handleOpenGif}
+                                            loading="lazy"
+                                        />
+                                        <Box
+                                            sx={{
+                                                position: 'absolute',
+                                                top: '50%',
+                                                left: '50%',
+                                                transform: 'translate(-50%, -50%)',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                width: '60px',
+                                                height: '60px',
+                                                bgcolor: 'rgba(0, 0, 0, 0.5)',
+                                                borderRadius: '50%',
+                                            }}
+                                            onClick={handleOpenGif}
+                                        >
+                                            <PlayArrowIcon sx={{ color: 'white', fontSize: 40 }} />
+                                        </Box>
+                                    </Box>
+                                </Grid>
+
+                                <Backdrop
+                                    sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1, backgroundColor: 'rgba(0, 0, 0, 0.8)', })}
+                                    open={openGif}
+                                    onClick={handleCloseGif}
+                                >
+                                    <Grid container justifyContent="center" alignItems="center" direction="column" style={{ height: '100vh' }} spacing={3}>
+                                        <Grid size={12}>
+                                            <Typography variant='h5' align='center' color='white'>
+                                                This is how to break your ankle from just 10 {unit} off the ground!
+                                            </Typography>
+                                        </Grid>
+                                        <Grid size={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                            <img
+                                                src='/falling_down.gif'
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    maxHeight: 450,
+                                                    maxWidth: 450,
+                                                }}
+                                                loading="lazy"
+                                                alt=""
+                                            />
+                                        </Grid>
+                                        <Typography variant='h5' align='center' color='white'>
+                                            Animated by yours truly while waiting for the doc to put me in a cast!
+                                        </Typography>
+                                    </Grid>
+                                </Backdrop>
+                                <Backdrop
+                                    sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1, backgroundColor: 'rgba(0, 0, 0, 0.8)', })}
+                                    open={openImages}
+                                    onClick={handleCloseImages}
+                                >
+                                    <QuiltedImageList itemForCols={3} />
+                                </Backdrop>
+
                                 <Grid size={12} py={4}>
                                     <Divider variant='middle' />
                                 </Grid>
@@ -80,6 +208,7 @@ const HomePhone = () => {
                                                         content: 'url(/glo_classification.png)',
                                                     },
                                                 }}
+                                                loading="lazy"
                                             />
                                         </Box>
                                     </Grid>
@@ -115,6 +244,7 @@ const HomePhone = () => {
                                                         content: 'url(/gan.png)',
                                                     },
                                                 }}
+                                                loading="lazy"
                                             />
                                         </Box>
                                     </Grid>
@@ -142,7 +272,7 @@ const HomePhone = () => {
                                         <Typography variant="h4" align="center">Teaching Experiences</Typography>
                                     </Grid>
                                     <Box display="flex" alignItems="center" pt={2}>
-                                        <Avatar src='/logoUnito.svg' sx={{ marginRight: 2, width: 56, height: 56 }} sizes="large" />
+                                        <a href='https://en.unito.it/'><Avatar src='/logoUnito.svg' sx={{ marginRight: 2, width: 56, height: 56 }} sizes="large" /></a>
                                         <Typography variant="subtitle1" display="inline" align='justify'>
                                             Teacher, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.mastercybersecuritytorino.it">Master in Cybersecurity</Link> - <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, 2024
                                         </Typography>
@@ -153,7 +283,7 @@ const HomePhone = () => {
 
 
                                     <Box display="flex" alignItems="center" pt={2}>
-                                        <Avatar src={mode === "dark" ? '/itisW.svg' : '/itisD.svg'} sx={{ marginRight: 2, width: 56, height: 56 }} sizes="large" />
+                                        <a href='https://www.itiscuneo.edu.it/'><Avatar src={mode === "dark" ? '/itisW.svg' : '/itisD.svg'} sx={{ marginRight: 2, width: 56, height: 56 }} sizes="large" /></a>
                                         <Typography variant="subtitle1" display="inline" align='justify'>
                                             Teacher, Lecture on Decentralized Systems - <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.itiscuneo.edu.it/">I.T.I.S. 'Mario Delpozzo'</Link>, Cuneo, 2023
                                         </Typography>
@@ -171,21 +301,27 @@ const HomePhone = () => {
                                 <Grid container size={12} spacing={4} justifyContent="center" alignItems="center" pt={2} pb={4}>
                                     <Grid size={6} container direction="column" alignItems="center">
                                         <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-                                            <img
-                                                src={mode === 'dark' ? '/logoPoliW.svg' : '/logoPoliD.svg'}
-                                                style={{ width: '100px', height: '100px' }}
-                                                alt="Politecnico di Torino Logo"
-                                            />
+                                            <a href="https://www.polito.it/en">
+                                                <img
+                                                    src={mode === 'dark' ? '/logoPoliW.svg' : '/logoPoliD.svg'}
+                                                    style={{ width: '100px', height: '100px' }}
+                                                    alt="Politecnico di Torino Logo"
+                                                    loading="lazy"
+                                                />
+                                            </a>
                                         </Box>
                                     </Grid>
 
                                     <Grid size={6} container direction="column" alignItems="center">
                                         <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-                                            <img
-                                                src='/logoUnito.svg'
-                                                style={{ width: '100px', height: '100px' }}
-                                                alt="University of Turin Logo"
-                                            />
+                                            <a href="https://en.unito.it/">
+                                                <img
+                                                    src='/logoUnito.svg'
+                                                    style={{ width: '100px', height: '100px' }}
+                                                    alt="University of Turin Logo"
+                                                    loading="lazy"
+                                                />
+                                            </a>
                                         </Box>
 
                                     </Grid>
@@ -204,6 +340,9 @@ const HomePhone = () => {
                         </Paper>
                     </Grid >
                     <Grid size={1}>
+                    </Grid>
+                    <Grid size={12} py={2} container direction="column">
+                        <Typography variant='caption' align='center' color='textSecondary'>Last updated: October 23, 2024</Typography>
                     </Grid>
                 </Grid >
             </Box >
