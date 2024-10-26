@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid2';
 import ThemeContext from '../Theme/ThemeContext';
 import { useContext, useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
-import { getUnit } from './utils';
+import { getUnit, trackEvent } from './utils';
 import QuiltedImageList from './images';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 const HomePhone = () => {
@@ -17,6 +17,7 @@ const HomePhone = () => {
         document.body.style.cursor = 'default';
     };
     const handleOpenGif = () => {
+        trackEvent('boulder');
         setOpenGif(true);
         document.body.style.overflow = 'hidden';
         document.body.style.cursor = 'pointer';
@@ -27,6 +28,7 @@ const HomePhone = () => {
         document.body.style.cursor = 'default';
     };
     const handleOpenImages = () => {
+        trackEvent('salento');
         setOpenImages(true);
         document.body.style.overflow = 'hidden';
         document.body.style.cursor = 'pointer';

@@ -3,8 +3,9 @@ import Grid from '@mui/material/Grid2';
 import ThemeContext from '../Theme/ThemeContext';
 import { useContext, useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
-import { getUnit } from './utils';
+import { getUnit, trackEvent } from './utils';
 import QuiltedImageList from './images';
+
 const Home = () => {
     const [openGif, setOpenGif] = useState(false);
     const [unit, setUnit] = useState('cm');
@@ -16,6 +17,7 @@ const Home = () => {
         document.body.style.cursor = 'default';
     };
     const handleOpenGif = () => {
+        trackEvent('boulder');
         setOpenGif(true);
         document.body.style.overflow = 'hidden';
         document.body.style.cursor = 'pointer';
@@ -26,6 +28,7 @@ const Home = () => {
         document.body.style.cursor = 'default';
     };
     const handleOpenImages = () => {
+        trackEvent('salento');
         setOpenImages(true);
         document.body.style.overflow = 'hidden';
         document.body.style.cursor = 'pointer';
@@ -208,7 +211,7 @@ const Home = () => {
                                     open={openImages}
                                     onClick={handleCloseImages}
                                 >
-                                    <QuiltedImageList/>
+                                    <QuiltedImageList />
                                 </Backdrop>
 
                                 <Grid size={12} pt={2} pb={4}>

@@ -10,3 +10,10 @@ export const getUnit = async () => {
         return 'cm';
     }
 };
+
+export const trackEvent = (eventName: any, metadata?: any) => {
+    if (window.sa_event) {
+        if (metadata === undefined) window.sa_event(eventName);
+        else window.sa_event(eventName, metadata);
+    }
+};

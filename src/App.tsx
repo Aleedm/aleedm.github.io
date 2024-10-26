@@ -6,6 +6,12 @@ import ThemeProvider from './Theme/ThemeProviderStatic';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+declare global {
+  interface Window {
+      sa_event?: (eventName: string, metadata?: Record<string, any>, callback?: () => void) => void;
+  }
+}
+
 
 function App() {
   document.title = 'Alessandro De Marco';
