@@ -5,12 +5,9 @@ import {
     useTheme,
 } from "@mui/material";
 import ThemeToggleButton from "../Theme/ThemeToggleButtonStatic";
-import { useContext } from "react";
-import ThemeContext from "../Theme/ThemeContext";
 
 const Appbar = () => {
     const theme = useTheme();
-    const { mode } = useContext(ThemeContext);
 
     return (
         <>

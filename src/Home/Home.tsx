@@ -1,14 +1,14 @@
 import { Avatar, Backdrop, Box, Divider, Link, List, ListItem, ListItemAvatar, ListItemText, Paper, Typography, useMediaQuery } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import ThemeContext from '../Theme/ThemeContext';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
-import { getUnit, trackEvent } from './utils';
+import { trackEvent } from './utils';
 import QuiltedImageList from './images';
+import { LAST_UPDATED } from '../config';
 
-const Home = () => {
+const Home = ({ unit }: { unit: string }) => {
     const [openGif, setOpenGif] = useState(false);
-    const [unit, setUnit] = useState('cm');
     const [openImages, setOpenImages] = useState(false);
 
     const handleCloseGif = () => {
@@ -37,14 +37,6 @@ const Home = () => {
     const { mode } = useContext(ThemeContext);
     const isMd = useMediaQuery(theme.breakpoints.only('md'));
 
-
-    useEffect(() => {
-        const fetchUnit = async () => {
-            const unitOfMeasure = await getUnit();
-            setUnit(unitOfMeasure);
-        };
-        fetchUnit();
-    }, []);
     return (
         <>
             <Box marginTop={10}>
@@ -88,7 +80,7 @@ const Home = () => {
                                     <>
                                         <Grid size={8} pt={8} pb={4} px={4}>
                                             <Typography variant="h3">Alessandro De Marco</Typography>
-                                            <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
+                                            <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandroxdemarco@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
                                         </Grid>
                                         <Grid size={12} pb={4} px={4}>
                                             <Typography variant="body1">I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>. In addition to my studies, I am a graduate researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, working under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. Previously, I received my Bachelor's degree in Computer Science from the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
@@ -134,7 +126,7 @@ const Home = () => {
                                     : <>
                                         <Grid size={8} pt={8} pb={2} px={4}>
                                             <Typography variant="h3">Alessandro De Marco</Typography>
-                                            <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
+                                            <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandroxdemarco@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
                                             <Typography variant="body1" align='justify'>I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>. In addition to my studies, I am a graduate researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, working under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. Previously, I received my Bachelor's degree in Computer Science from the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
                                         </Grid>
                                         <Grid container size={12}>
@@ -344,7 +336,7 @@ const Home = () => {
                     <Grid size={2}>
                     </Grid>
                     <Grid size={12} py={2} container direction="column">
-                        <Typography variant='caption' align='center' color='textSecondary'>Last updated: October 23, 2024</Typography>
+                        <Typography variant='caption' align='center' color='textSecondary'>Last updated: {LAST_UPDATED}</Typography>
                     </Grid>
                 </Grid >
             </Box >

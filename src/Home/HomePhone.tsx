@@ -1,14 +1,14 @@
 import { Avatar, Backdrop, Box, Divider, Link, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import ThemeContext from '../Theme/ThemeContext';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
-import { getUnit, trackEvent } from './utils';
+import { trackEvent } from './utils';
 import QuiltedImageList from './images';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-const HomePhone = () => {
+import { LAST_UPDATED } from '../config';
+const HomePhone = ({ unit }: { unit: string }) => {
     const [openGif, setOpenGif] = useState(false);
-    const [unit, setUnit] = useState('cm');
     const [openImages, setOpenImages] = useState(false);
 
     const handleCloseGif = () => {
@@ -36,13 +36,6 @@ const HomePhone = () => {
     const theme = useTheme();
     const { mode } = useContext(ThemeContext);
 
-    useEffect(() => {
-        const fetchUnit = async () => {
-            const unitOfMeasure = await getUnit();
-            setUnit(unitOfMeasure);
-        };
-        fetchUnit();
-    }, []);
     return (
         <>
             <Box marginTop={3}>
@@ -82,7 +75,7 @@ const HomePhone = () => {
                                 </Grid>
                                 <Grid size={12} pt={2} pb={1}>
                                     <Typography variant="h3" align="center">Alessandro De Marco</Typography>
-                                    <Typography align='center' variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textDisabled">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textDisabled">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textDisabled">LinkedIn</Link>]</Typography>
+                                    <Typography align='center' variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textDisabled">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandroxdemarco@gmail.com" color="textDisabled">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textDisabled">LinkedIn</Link>]</Typography>
                                 </Grid>
                                 <Grid size={12} pb={2}>
                                     <Typography variant="body1" align='justify'>I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/">Politecnico di Torino</Link>. Additionally, I am a graduate researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, working with <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. Before that, I received my bachelor's degree in Computer Science from the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
@@ -344,7 +337,7 @@ const HomePhone = () => {
                     <Grid size={1}>
                     </Grid>
                     <Grid size={12} py={2} container direction="column">
-                        <Typography variant='caption' align='center' color='textSecondary'>Last updated: October 23, 2024</Typography>
+                        <Typography variant='caption' align='center' color='textSecondary'>Last updated: {LAST_UPDATED}</Typography>
                     </Grid>
                 </Grid >
             </Box >
