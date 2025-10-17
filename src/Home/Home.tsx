@@ -80,10 +80,10 @@ const Home = ({ unit }: { unit: string }) => {
                                     <>
                                         <Grid size={8} pt={8} pb={4} px={4}>
                                             <Typography variant="h3">Alessandro De Marco</Typography>
-                                            <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandroxdemarco@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
+                                            <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
                                         </Grid>
                                         <Grid size={12} pb={4} px={4}>
-                                            <Typography variant="body1">I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>. In addition to my studies, I am a graduate researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, working under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. Previously, I received my Bachelor's degree in Computer Science from the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
+                                            <Typography variant="body1">I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>. During my graduate studies, I worked as a researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. Previously, I received my Bachelor's degree in Computer Science from the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
                                         </Grid>
                                         <Grid container size={12}>
                                             <Grid size={8} pb={4} pt={1} px={4}>
@@ -103,13 +103,13 @@ const Home = ({ unit }: { unit: string }) => {
                                                         src='/falling_down.jpg'
                                                         style={{
                                                             position: 'absolute',
-                                                            top: '50%',
+                                                            // top: '50%',
                                                             transform: 'translateY(-50%)',
                                                             left: 0,
                                                             width: '100%',
                                                             height: '100%',
                                                             objectFit: 'cover',
-                                                            objectPosition: '50% 10%',
+                                                            // objectPosition: '50% 10%',
                                                             borderRadius: '50%',
                                                             cursor: 'pointer'
                                                         }}
@@ -126,12 +126,16 @@ const Home = ({ unit }: { unit: string }) => {
                                     : <>
                                         <Grid size={8} pt={8} pb={2} px={4}>
                                             <Typography variant="h3">Alessandro De Marco</Typography>
-                                            <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandroxdemarco@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
-                                            <Typography variant="body1" align='justify'>I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>. In addition to my studies, I am a graduate researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, working under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. Previously, I received my Bachelor's degree in Computer Science from the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
+                                            <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
+                                            <Typography variant="body1" align='justify'>I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>. 
+                                            I conducted my Master's thesis project at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://ethz.ch/en.html">ETH Zurich</Link>, working on robot navigation and exploration at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://pbl.ee.ethz.ch/">Center for Project-Based Learning D-ITET </Link> 
+                                            under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it">Prof. Raffaello Camoriano</Link>, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=ytj7UUcAAAAJ&hl=en">Prof. Michele Magno</Link> and PhD students <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=X8rYlhIAAAAJ&hl=en">Davide Plozza</Link>, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=mm7B7UwAAAAJ&hl=en">Liam Boyle</Link> and <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=NRmcxZgAAAAJ&hl=de">Maurice Brunner</Link>.
+                                            During my graduate studies, I worked as a researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. 
+                                            Previously, I received my Bachelor's degree in Computer Science from the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
                                         </Grid>
                                         <Grid container size={12}>
                                             <Grid size={8} pb={8} pt={8} px={4}>
-                                                <Typography align='justify'>I'm from a stunning corner of Italy called <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} color="textSecondary" onClick={handleOpenImages}>Salento</Link>, where the sun, sea, and wind (lu sule, lu mare, lu ientu) are basically part of our DNA. True to the stereotype, I’m into just about everything: I’ve tried surfing, kite surfing, and snowboarding, and I’ve mastered the art of gracefully wiping out and getting back up. I also have a love for hiking and climbing. On the right, you’ll see an excellent example of my skills in action!</Typography>
+                                                <Typography align='justify'>I'm from a stunning corner of Italy called <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} color="textSecondary" onClick={handleOpenImages}>Salento</Link>, where the sun, sea, and wind (lu sule, lu mare, lu ientu) are basically part of our DNA. True to the stereotype, I’m into just about everything: I’ve tried surfing, kite surfing, and snowboarding, and I’ve mastered the art of gracefully wiping out and getting back up. I also have a love for running, hiking and climbing. On the right, you’ll see an excellent example of my skills in action!</Typography>
 
                                             </Grid>
                                             <Grid size={4} py={2} px={6}>
@@ -292,7 +296,19 @@ const Home = ({ unit }: { unit: string }) => {
                                     <Typography variant="h4">Education</Typography>
                                 </Grid>
                                 <Grid container size={12} spacing={4} py={5} justifyContent="center" alignItems="center">
-                                    <Grid size={6} container direction="column" alignItems="center" spacing={2}>
+                                    <Grid size={4} container direction="column" alignItems="center" spacing={2}>
+                                        <Box display="flex" justifyContent="center" alignItems="center" height="100%">
+                                            <a href="https://ethz.ch/en.html">
+                                                <img
+                                                    src={mode === 'dark' ? '/eth_logo_kurz_neg.svg' : '/eth_logo_kurz_pos.svg'}
+                                                    style={{ width: '150px', height: '150px' }}
+                                                    alt="ETH Zurich Logo"
+                                                    loading="lazy"
+                                                />
+                                            </a>
+                                        </Box>
+                                    </Grid>
+                                    <Grid size={4} container direction="column" alignItems="center" spacing={2}>
                                         <Box display="flex" justifyContent="center" alignItems="center" height="100%">
                                             <a href="https://www.polito.it/en">
                                                 <img
@@ -305,7 +321,7 @@ const Home = ({ unit }: { unit: string }) => {
                                         </Box>
                                     </Grid>
 
-                                    <Grid size={6} container direction="column" alignItems="center" spacing={2}>
+                                    <Grid size={4} container direction="column" alignItems="center" spacing={2}>
                                         <Box display="flex" justifyContent="center" alignItems="center" height="100%">
                                             <a href="https://en.unito.it/">
                                                 <img
@@ -319,12 +335,17 @@ const Home = ({ unit }: { unit: string }) => {
                                         </Box>
 
                                     </Grid>
-                                    <Grid size={6} container direction="column" alignItems="center" spacing={0}>
+                                    <Grid size={4} container direction="column" alignItems="center" spacing={0}>
+                                        <Typography variant="subtitle1" align="center">Project Mobility Student</Typography>
+                                        <Typography variant="subtitle1" align="center"><Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://ethz.ch/en.html">ETH Zurich</Link></Typography>
+                                        <Typography variant="caption" align="center">March 2025 - August 2025</Typography>
+                                    </Grid>
+                                    <Grid size={4} container direction="column" alignItems="center" spacing={0}>
                                         <Typography variant="subtitle1" align="center">Graduate student in Artificial Intelligence</Typography>
                                         <Typography variant="subtitle1" align="center"><Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link></Typography>
                                         <Typography variant="caption" align="center">Sept. 2022 - Present</Typography>
                                     </Grid>
-                                    <Grid size={6} container direction="column" alignItems="center" spacing={0}>
+                                    <Grid size={4} container direction="column" alignItems="center" spacing={0}>
                                         <Typography variant="subtitle1" align="center">B.Sc. in Computer Science</Typography>
                                         <Typography variant="subtitle1" align="center"><Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link></Typography>
                                         <Typography variant="caption" align="center">Sept. 2019 - July 2022</Typography>
