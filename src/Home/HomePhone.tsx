@@ -78,7 +78,7 @@ const HomePhone = ({ unit }: { unit: string }) => {
                                     <Typography align='center' variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textDisabled">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textDisabled">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textDisabled">LinkedIn</Link>]</Typography>
                                 </Grid>
                                 <Grid size={12} pb={2}>
-                                    <Typography variant="body1" align='justify'>I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>.
+                                    <Typography variant="body1" align='justify'>Founding Engineer and Data & AI Engineering Lead at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.bubble-robotics.com/">Bubble Robotics</Link> in Zurich. I work on data and AI systems for autonomous robotics, from intelligent navigation and perception to large-scale data and cloud infrastructure. I hold a master's degree in Artificial Intelligence and Data Analytics from <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>.
                                         I conducted my Master's thesis project at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://ethz.ch/en.html">ETH Zurich</Link>, working on robot navigation and exploration at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://pbl.ee.ethz.ch/">Center for Project-Based Learning D-ITET </Link> 
                                         under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it">Prof. Raffaello Camoriano</Link>, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=ytj7UUcAAAAJ&hl=en">Prof. Michele Magno</Link> and PhD students <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=X8rYlhIAAAAJ&hl=en">Davide Plozza</Link>, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=mm7B7UwAAAAJ&hl=en">Liam Boyle</Link> and <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=NRmcxZgAAAAJ&hl=de">Maurice Brunner</Link>.
                                         During my graduate studies, I worked as a researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>.
@@ -181,7 +181,69 @@ const HomePhone = ({ unit }: { unit: string }) => {
                                 </Grid>
                                 <Grid container size={12} direction="column" alignItems="center">
                                     <Grid size={12}>
+                                        <Typography variant="h4" align="center">Experience</Typography>
+                                    </Grid>
+                                    <Grid size={12} pt={2}>
+                                        <Typography variant='h5'>Founding Engineer & Data/AI Engineering Lead</Typography>
+                                    </Grid>
+                                    <Grid size={12}>
+                                        <Typography variant='subtitle2' align='justify' color="textSecondary">
+                                            <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.bubble-robotics.com/">Bubble Robotics</Link>, Zurich, Nov. 2025 - Present
+                                        </Typography>
+                                        <Typography variant='body1' align='justify'>
+                                            Leading data and AI engineering for autonomous robotics, spanning intelligent navigation, perception, large-scale data infrastructure, and cloud-based robotics workflows.
+                                        </Typography>
+                                    </Grid>
+                                    <Grid size={12} pt={2}>
+                                        <Typography variant='h5'>Project Mobility Student</Typography>
+                                    </Grid>
+                                    <Grid size={12}>
+                                        <Typography variant='subtitle2' align='justify' color="textSecondary">
+                                            <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://ethz.ch/en.html">ETH Zurich</Link>, Mar. 2025 - Aug. 2025
+                                        </Typography>
+                                        <Typography variant='body1' align='justify'>
+                                            Conducted master's thesis research on robot navigation and exploration, combining diffusion models and reinforcement learning to improve decision-making in complex environments.
+                                        </Typography>
+                                    </Grid>
+                                    <Grid size={12} pt={2}>
+                                        <Typography variant='h5'>Research Fellow</Typography>
+                                    </Grid>
+                                    <Grid size={12}>
+                                        <Typography variant='subtitle2' align='justify' color="textSecondary">
+                                            <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, Sept. 2022 - Dec. 2024
+                                        </Typography>
+                                        <Typography variant='body1' align='justify'>
+                                            Worked on blockchain and decentralized systems research under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>.
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Grid size={12} py={4}>
+                                    <Divider variant='middle' />
+                                </Grid>
+                                <Grid container size={12} direction="column" alignItems="center">
+                                    <Grid size={12}>
+                                        <Typography variant="h4" align="center">Skills</Typography>
+                                    </Grid>
+                                    <Grid size={12} pt={2}>
+                                        <Typography variant='body1' align='center' color="textSecondary">
+                                            AI & Robotics, Computer Vision, Reinforcement Learning, Diffusion Models, Data Engineering, Cloud Infrastructure, PyTorch, Generative AI, Blockchain, Ethereum
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Grid size={12} py={4}>
+                                    <Divider variant='middle' />
+                                </Grid>
+                                <Grid container size={12} direction="column" alignItems="center">
+                                    <Grid size={12}>
                                         <Typography variant="h4" align="center">Projects</Typography>
+                                    </Grid>
+                                    <Grid size={12} pt={2}>
+                                        <Typography variant='h5'>Robot Navigation and Exploration</Typography>
+                                    </Grid>
+                                    <Grid size={12}>
+                                        <Typography variant='body1' align='justify'>
+                                            Master's thesis project at ETH Zurich focused on autonomous navigation and exploration, combining diffusion models and reinforcement learning for decision-making in complex robotic environments.
+                                        </Typography>
                                     </Grid>
                                     <Grid size={12} pt={2}>
                                         <Typography variant='h5'>
@@ -213,8 +275,8 @@ const HomePhone = ({ unit }: { unit: string }) => {
                                     </Grid>
                                     <Grid size={12}>
                                         <Typography variant='body1' align='justify'>
-                                            In this project, I applied convolutional neural networks to segment histological images of kidney tissue, implementing SegNet and U-Net for precise identification of glomeruli and using feature extraction methods by autoencoder, VGG-19, and ResNet50, followed by unsupervised clustering to classify them according to their Necrosis status". <br />
-                                            {"["}<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm/GlomeruLearn-Advanced-Deep-Learning-for-Kidney-Tissue-Analysis">GitHub</Link>{"]"}{" ["}<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm/Real-time-Domain-Adaptation-in-Semantic-Segmentation/blob/main/paper.pdf">Paper</Link>{"]"}
+                                            In this project, I applied convolutional neural networks to segment histological images of kidney tissue, implementing SegNet and U-Net for precise identification of glomeruli and using feature extraction methods by autoencoder, VGG-19, and ResNet50, followed by unsupervised clustering to classify them according to their Necrosis status. <br />
+                                            {"["}<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm/GlomeruLearn-Advanced-Deep-Learning-for-Kidney-Tissue-Analysis">GitHub</Link>{"]"}{" ["}<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm/GlomeruLearn-Advanced-Deep-Learning-for-Kidney-Tissue-Analysis/blob/main/Report.pdf">Paper</Link>{"]"}
                                         </Typography>
                                     </Grid>
 
@@ -259,7 +321,7 @@ const HomePhone = ({ unit }: { unit: string }) => {
                                     <Grid size={12}>
                                         <Typography variant='body1' align='justify'>
                                             I explored the effectiveness of enrichment with commonsense knowledge into abstractive dialogue summarization by comparing different language models (T5, BART, PEGASUS) on datasets such as DialogSum, SamSum, and TweetSumm. The results highlight how advanced use of the SICK++ model improves the quality of summaries, especially in real-world contexts such as customer service conversations on Twitter.<br />
-                                            {"["}<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm/Real-time-Domain-Adaptation-in-Semantic-Segmentation">GitHub</Link>{"]"}{" ["}<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm/Sick-Summarization/blob/main/paper.pdf">Paper</Link>{"]"}
+                                            {"["}<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm/Sick-Summarization">GitHub</Link>{"]"}{" ["}<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm/Sick-Summarization/blob/main/paper.pdf">Paper</Link>{"]"}
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -268,12 +330,12 @@ const HomePhone = ({ unit }: { unit: string }) => {
                                 </Grid>
                                 <Grid container size={12} direction="column" alignItems="center">
                                     <Grid size={12}>
-                                        <Typography variant="h4" align="center">Teaching Experiences</Typography>
+                                        <Typography variant="h4" align="center">Teaching & Lectures</Typography>
                                     </Grid>
                                     <Box display="flex" alignItems="center" pt={2}>
                                         <a href='https://en.unito.it/'><Avatar src='/logoUnito.svg' sx={{ marginRight: 2, width: 56, height: 56 }} sizes="large" /></a>
                                         <Typography variant="subtitle1" display="inline" align='justify'>
-                                            Teacher, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.mastercybersecuritytorino.it">Master in Cybersecurity</Link> - <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, 2024
+                                            Lecturer, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.mastercybersecuritytorino.it">Master in Cybersecurity</Link> - COREP / <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, 2024
                                         </Typography>
                                     </Box>
                                     <Typography variant="body2" align='justify' color="textDisabled">
@@ -342,9 +404,9 @@ const HomePhone = ({ unit }: { unit: string }) => {
                                         <Typography variant="caption" align="center">March. 2025 - Present</Typography>
                                     </Grid>
                                     <Grid size={4} container direction="column" alignItems="center" spacing={0}>
-                                        <Typography variant="subtitle2" align="center">Graduate student in Artificial Intelligence</Typography>
+                                        <Typography variant="subtitle2" align="center">Master's Degree in Artificial Intelligence</Typography>
                                         <Typography variant="subtitle2" align="center"><Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/">Politecnico di Torino</Link></Typography>
-                                        <Typography variant="caption" align="center">Sept. 2022 - Present</Typography>
+                                        <Typography variant="caption" align="center">Sept. 2022 - Oct. 2025</Typography>
                                     </Grid>
                                     <Grid size={4} container direction="column" alignItems="center" spacing={0}>
                                         <Typography variant="subtitle2" align="center">B.Sc. in Computer Science</Typography>
@@ -408,7 +470,7 @@ const HomePhone = ({ unit }: { unit: string }) => {
                                             </a>
                                         </Box>
                                         <Typography variant="subtitle2" align="center">
-                                            Graduate student in Artificial Intelligence
+                                            Master's Degree in Artificial Intelligence
                                         </Typography>
                                         <Typography variant="subtitle2" align="center">
                                             <Link
@@ -423,7 +485,7 @@ const HomePhone = ({ unit }: { unit: string }) => {
                                             </Link>
                                         </Typography>
                                         <Typography variant="caption" align="center">
-                                            Sept. 2022 - Present
+                                            Sept. 2022 - Oct. 2025
                                         </Typography>
                                     </Grid>
                                     <Grid size={12} py={2} px={10}> 

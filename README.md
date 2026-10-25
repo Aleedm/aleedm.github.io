@@ -1,46 +1,86 @@
-# Getting Started with Create React App
+# Alessandro De Marco — Personal Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive personal website told as one descent, with the camera always looking down: from orbit, through the clouds, over the Alps, down to the Salento coast and the seabed. Scroll is altitude. Built with React, TypeScript, and Vite for static hosting on [GitHub Pages](https://aleedm.github.io/).
 
-## Available Scripts
+This is the first visual prototype. The copy and content selection are provisional; the focus is on atmosphere, transitions, and interaction.
 
-In the project directory, you can run:
+## Development
 
-### `npm start`
+Use Node.js 22.12+ (or 20.19+).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+npm install
+npm start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Open the local URL printed by Vite, normally http://127.0.0.1:5173/.
 
-### `npm test`
+```bash
+npm run typecheck
+npm run test:motion
+npm run build
+npm run preview
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The production build is written to `dist/`. Preview serves the production build locally.
 
-### `npm run build`
+## Deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm run deploy
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This builds the site and publishes `dist/` to the `gh-pages` branch, preserving the existing branch-based publication method. The Vite base is `/` for `aleedm.github.io`; the build includes `.nojekyll`. Deployment is manual; running the development server does not publish anything.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Structure
 
-### `npm run eject`
+- `src/App.tsx`: chapter content (orbit, Alps, sea level, seabed) and motion control.
+- `src/experience/release.ts`: `OPEN_WATER`. While it is `false` the journey ends at the shore with a short closing; the sea and seabed chapters stay in the code, hidden.
+- `src/experience/Atmosphere.tsx`: frame loop — star particles, the descent, and the sea current.
+- `src/experience/world.ts`: one WebGL2 shader for the whole top-down world — night map and clouds during re-entry, Swiss-style relief and contours, coast, seabed, and caustics focused by the swell.
+- `src/experience/terrain.ts`: the shared heightfield, in TypeScript and GLSL, so DOM labels report the same elevations the map draws.
+- `src/experience/journey.ts`: page measurements, scroll-to-altitude mapping, Zurich → Salento coordinates, and the shared sea current.
+- `src/experience/Constellation.tsx`: the path so far (studies, projects, teaching) as an interactive constellation with an observation panel.
+- `src/experience/PingPongConsole.tsx` and `public/pingpong/play.html`: the original PingPong (Java 8 / Swing, written at 15) in a dialog via CheerpJ, on desktop. Touch devices see a note instead: the JVM lags badly on iPhone. `public/pingpong/` holds the JAR built from the repository's compiled classes plus its original assets.
+- `src/experience/RunningCard.tsx`, `ActivityCard.tsx` and `strava.ts`: running personal bests (5K, 10K, half, marathon) and the latest run, plus the latest hike, snowboard day, stand-up paddle and tennis session, read from `/data/strava.json`.
+- `scripts/strava.mjs`: fetches that data from Strava (see below); `data/strava-bests.json` keeps the bests between runs.
+- `src/experience/Altimeter.tsx`: altitude/coordinate readout that doubles as chapter navigation.
+- `src/experience/Trail.tsx`: GPS-style trail with sports waypoints, drawn as you scroll.
+- `src/experience/Driftwood.tsx`: Salento photographs floating on the water, carried by the visitor's current.
+- `src/experience/experience.css`: responsive layout and typography.
+- `src/experience/particles.ts`: continuous star drift and proximity repulsion without return anchors.
+- `src/experience/flow-field.ts`: directional stroke injection, semi-Lagrangian advection, and dissipation.
+- `src/experience/analytics.ts`: Simple Analytics integration.
+- `docs/motion-study.md`: concept, technical choices, and acceptance criteria.
+- `public/`: existing personal photos and project assets.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The earlier `src/Home`, `src/Theme`, and `src/Appbar` components and CRA entry files remain as reference, including pre-existing local edits. They are not part of the Vite entry graph or the current TypeScript check. Material UI and Create React App are no longer runtime/build dependencies. `public/index.html` is the old CRA template; Vite uses the root `index.html` and emits its built version to `dist/index.html`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Motion and accessibility
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The page uses native scrolling and semantic HTML for its content. Every chapter has a direct anchor link from the altimeter. A pause button freezes ambient motion; system `prefers-reduced-motion` settings are respected. Touch input retains native page scrolling. Rendering pauses in background tabs and the world canvas resolution is capped; static land frames are only redrawn on scroll or pointer movement. Without WebGL2 the page falls back to a static gradient. The landscape is fully procedural: no generated or stock imagery, only original personal photographs.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Strava
 
-## Learn More
+The Running waypoint shows personal bests and the latest run. GitHub Pages cannot keep secrets, so a scheduled GitHub Action (`.github/workflows/pages.yml`, every 6 hours, on push to `main`, or by hand) refreshes the data with credentials stored as repository secrets, then builds and deploys the site. The browser only ever sees the resulting `strava.json`: times, dates, and links. Snowboarding and hiking swap places on the trail so the one whose latest activity reached the higher point (Strava's `elev_high`) sits on top. Hikes, snowboard days and paddles include their route, but only as a shape fitted in a 100-unit box (no coordinates), with the first and last 250 m removed. Only runs visible to Everyone or Followers are used.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Personal bests come from Strava's per-run best efforts. The first scan reads every run once (rate-limited, so it may take a while); afterwards only new runs are inspected. `data/strava-bests.json` (state) and `public/data/strava.json` (what the site reads) are both committed when they change, so if Strava is unreachable or rate-limited the script only warns and the site deploys with the last good data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+One-time setup:
+
+1. Create an API app at https://www.strava.com/settings/api with Authorization Callback Domain `localhost`.
+2. Put `STRAVA_CLIENT_ID` and `STRAVA_CLIENT_SECRET` in `.env.local`, then run `npm run strava:auth` and approve access. The refresh token is saved to `.env.local`.
+3. Run `npm run strava -- --wait` for the first full scan, and commit `data/strava-bests.json` and `public/data/strava.json`.
+4. In the repository settings: add the three values as Actions secrets; set Pages → Source to "GitHub Actions"; make `main` the default branch (scheduled workflows only run there).
+
+`npm run deploy` (the `gh-pages` branch) keeps working until step 4, after which the Action publishes instead.
+
+## Analytics
+
+Production keeps the existing Simple Analytics `latest.js` and `auto-events.js` scripts, with queued custom events for chapter views (once per chapter per page load), chapter navigation, and motion control. Localhost and development do not load analytics. Existing automatic email, outbound-link, and download tracking remains available.
+
+The earlier IP geolocation and Make/Telegram visitor-notification utilities remain in the reference source and are not invoked by the new experience. No credentials are needed for the prototype.
+
+## PingPong
+
+Clicking the PingPong star opens the original game on desktop. Touch devices are currently excluded (`canPlayPingPong` in `src/experience/pingpong.ts`) because the game's busy `Thread.sleep(1)` loops make CheerpJ lag badly on iPhone. The touch support is kept for a future attempt: the dialog goes full screen, scales the 770×530 window to fit, and adds held ▲/▼ buttons for each paddle plus Serve (beside the table when the phone is on its side). Those buttons post W/S/O/L/Enter to the frame, which dispatches them as key events with Java key codes; as on the original desktop, the game panel only takes keyboard focus after a click, so the frame first clicks an empty corner. CheerpJ's input methods are off and its hidden text fields use `inputmode="none"`, so the phone keyboard never opens. It runs in its own iframe: closing the dialog removes the frame and shuts the JVM down, and reopening starts a fresh one. CheerpJ is loaded from `cjrtnc.leaningtech.com` on first open only (about 1.5 MB, a few seconds), under its Community License for personal projects, which requires loading from that CDN and crediting CheerpJ (done in the dialog footer). The game reads its assets relative to the working directory, which in CheerpJ is `/files/`, so they are copied there before the JAR starts. The only change to the original bytecode widens the title button by 4px (`MenuPanel`, `setBounds(246, 50, 281, 100)` → `(244, 50, 285, 100)`, same centre): with Arial's exact metrics the title needs 281.2px and Swing truncated it to "Ping Po…". Hosting needs HTTP Range support, which GitHub Pages and Vite both provide.

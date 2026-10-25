@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PingPong</title>
+  <!-- The original PingPong (Java 8 / Swing) on CheerpJ, a JVM in WebAssembly.
+       It lives in its own frame so that closing the dialog discards the whole JVM.
+       CheerpJ Community License: loaded from its CDN, credited in the dialog. -->
+  <script src="https://cjrtnc.leaningtech.com/4.2/loader.js"></script>
+  <style>
+    html, body { margin: 0; overflow: hidden; background: #05090d; }
+    /* Swing's 20px title bar sits above the frame's edge, out of sight. */
+    #display { width: 770px; height: 550px; margin-top: -20px; outline: none; }
+  </style>
+</head>
+<body>
+  <div id="display" tabindex="-1"></div>
+  <script type="module">
+    const GAME = '/app/pingpong/';
+    const post = (type, detail) => parent.postMessage({ source: 'pingpong', type, detail }, location.origin);
+    addEventListener('keydown', (event) => { if (event.key === 'Escape') post('close'); }, true);
+
+    // On-screen controls in the parent send keys here. Java reads getKeyCode(), so keyCode is set too.
+    const KEYS = { w: ['KeyW', 87], s: ['KeyS', 83], o: ['KeyO', 79], l: ['KeyL', 76], Enter: ['Enter', 13] };
+    addEventListener('message', (event) => {
+      if (event.origin !== location.origin || event.source !== parent || event.data?.source !== 'pingpong-controls') return;
+      const [code, keyCode] = KEYS[event.data.key] ?? [];
+      if (!code) return;
+      if (event.data.down) focusGame();
+      const keyEvent = new KeyboardEvent(event.data.down ? 'keydown' : 'keyup', { key: event.data.key, code, bubbles: true, cancelable: true });
+      Object.defineProperty(keyEvent, 'keyCode', { get: () => keyCode });
+      Object.defineProperty(keyEvent, 'which', { get: () => keyCode });
+      (document.activeElement ?? document.body).dispatchEvent(keyEvent);
+    });
+
+    // The game only takes keyboard focus on a click (Frame.mouseClicked), as it did on the desktop.
+    // Click the bottom-left corner, which is empty in every menu and on the table.
+    function focusGame() {
+      const canvas = document.querySelector('#display canvas');
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = rect.left + 40, y = rect.bottom - 30;
+      const target = document.elementFromPoint(x, y);
+      if (!target) return;
+      for (const type of ['pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click']) {
+        const init = { bubbles: true, cancelable: true, clientX: x, clientY: y, screenX: x, screenY: y, button: 0, buttons: type.endsWith('down') ? 1 : 0, view: window };
+        target.dispatchEvent(type.startsWith('pointer') ? new PointerEvent(type, { ...init, pointerId: 1, pointerType: 'mouse', isPrimary: true }) : new MouseEvent(type, init));
+      }
+    }
+
+    // Never summon the phone's keyboard for CheerpJ's hidden text fields.
+    new MutationObserver(() => document.querySelectorAll('textarea:not([inputmode])').forEach((field) => field.setAttribute('inputmode', 'none')))
+      .observe(document.body, { childList: true, subtree: true });
+
+    // Until Swing paints the menu, the window is plain #eeeeee.
+    const firstPaint = (display, timeout = 10000) => new Promise((resolve) => {
+      const deadline = performance.now() + timeout;
+      const check = () => {
+        const canvas = display.querySelector('canvas');
+        try {
+          const [r, g, b] = canvas?.getContext('2d')?.getImageData(80, 300, 1, 1).data ?? [238, 238, 238];
+          if (!(r === 238 && g === 238 && b === 238)) return resolve();
+        } catch { return resolve(); }
+        if (performance.now() > deadline) return resolve();
+        setTimeout(check, 150);
+      };
+      check();
+    });
+
+    try {
+      const display = document.getElementById('display');
+      await cheerpjInit({ version: 8, status: 'none', enableInputMethods: false });
+      cheerpjCreateDisplay(-1, -1, display);
+      const lib = await cheerpjRunLibrary('');
+      const File = await lib.java.io.File;
+      const Files = await lib.java.nio.file.Files;
+      const Output = await lib.java.io.FileOutputStream;
+      // The game opens its assets relative to the working directory, which is /files/.
+      for (const name of ['background.jpg', 'paddle.png', 'digital-7.ttf']) {
+        const bytes = await Files.readAllBytes(await (await new File(GAME + name)).toPath());
+        const out = await new Output('/files/' + name);
+        await out.write(bytes);
+        await out.close();
+      }
+      cheerpjRunJar(GAME + 'pingpong.jar');
+      await firstPaint(display);
+      display.focus();
+      post('ready');
+    } catch (error) {
+      post('error', String(error));
+    }
+  </script>
+</body>
+</html>

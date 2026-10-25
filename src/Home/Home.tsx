@@ -83,7 +83,7 @@ const Home = ({ unit }: { unit: string }) => {
                                             <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
                                         </Grid>
                                         <Grid size={12} pb={4} px={4}>
-                                            <Typography variant="body1">I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>. During my graduate studies, I worked as a researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. Previously, I received my Bachelor's degree in Computer Science from the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
+                                            <Typography variant="body1">Founding Engineer and Data & AI Engineering Lead at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.bubble-robotics.com/">Bubble Robotics</Link> in Zurich. I work on data and AI systems for autonomous robotics, from intelligent navigation and perception to large-scale data and cloud infrastructure. I hold a master's degree in Artificial Intelligence and Data Analytics from <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>, with research experience at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://ethz.ch/en.html">ETH Zurich</Link> and the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>.</Typography>
                                         </Grid>
                                         <Grid container size={12}>
                                             <Grid size={8} pb={4} pt={1} px={4}>
@@ -127,7 +127,7 @@ const Home = ({ unit }: { unit: string }) => {
                                         <Grid size={8} pt={8} pb={2} px={4}>
                                             <Typography variant="h3">Alessandro De Marco</Typography>
                                             <Typography variant="body2" color='gray'>[<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://github.com/Aleedm" color="textSecondary">GitHub</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="mailto:alessandrodemarco.1237@gmail.com" color="textSecondary">Mail</Link>] [<Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.linkedin.com/in/aleedm/" color="textSecondary">LinkedIn</Link>]</Typography>
-                                            <Typography variant="body1" align='justify'>I am a final-year graduate student in Artificial Intelligence and Data Analytics at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>. 
+                                            <Typography variant="body1" align='justify'>Founding Engineer and Data & AI Engineering Lead at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.bubble-robotics.com/">Bubble Robotics</Link> in Zurich. I work on data and AI systems for autonomous robotics, from intelligent navigation and perception to large-scale data and cloud infrastructure. I hold a master's degree in Artificial Intelligence and Data Analytics from <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link>.
                                             I conducted my Master's thesis project at <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://ethz.ch/en.html">ETH Zurich</Link>, working on robot navigation and exploration at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://pbl.ee.ethz.ch/">Center for Project-Based Learning D-ITET </Link> 
                                             under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it">Prof. Raffaello Camoriano</Link>, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=ytj7UUcAAAAJ&hl=en">Prof. Michele Magno</Link> and PhD students <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=X8rYlhIAAAAJ&hl=en">Davide Plozza</Link>, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=mm7B7UwAAAAJ&hl=en">Liam Boyle</Link> and <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.com/citations?user=NRmcxZgAAAAJ&hl=de">Maurice Brunner</Link>.
                                             During my graduate studies, I worked as a researcher at the <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>. 
@@ -215,8 +215,50 @@ const Home = ({ unit }: { unit: string }) => {
                                 </Grid>
 
                                 <Grid size={12} pl={8}>
+                                    <Typography variant="h4">Experience</Typography>
+                                    <List>
+                                        <ListItem alignItems="flex-start">
+                                            <ListItemText primary={
+                                                <Typography variant="subtitle1" align='justify'>
+                                                    Founding Engineer & Data/AI Engineering Lead - <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.bubble-robotics.com/">Bubble Robotics</Link>, Zurich, Nov. 2025 - Present
+                                                </Typography>}
+                                                secondary={<Typography variant="body2" align='justify' color="textSecondary">Leading data and AI engineering for autonomous robotics, spanning intelligent navigation, perception, large-scale data infrastructure, and cloud-based robotics workflows.</Typography>} />
+                                        </ListItem>
+                                        <ListItem alignItems="flex-start">
+                                            <ListItemText primary={
+                                                <Typography variant="subtitle1" align='justify'>
+                                                    Project Mobility Student - <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://ethz.ch/en.html">ETH Zurich</Link>, Mar. 2025 - Aug. 2025
+                                                </Typography>}
+                                                secondary={<Typography variant="body2" align='justify' color="textSecondary">Conducted master's thesis research on robot navigation and exploration, combining diffusion models and reinforcement learning to improve decision-making in complex environments.</Typography>} />
+                                        </ListItem>
+                                        <ListItem alignItems="flex-start">
+                                            <ListItemText primary={
+                                                <Typography variant="subtitle1" align='justify'>
+                                                    Research Fellow - <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, Sept. 2022 - Dec. 2024
+                                                </Typography>}
+                                                secondary={<Typography variant="body2" align='justify' color="textSecondary">Worked on blockchain and decentralized systems research under the supervision of <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://scholar.google.it/citations?user=MNw82SUAAAAJ&hl=it">Prof. Claudio Schifanella</Link>.</Typography>} />
+                                        </ListItem>
+                                    </List>
+                                </Grid>
+                                <Grid size={12} py={4}>
+                                    <Divider variant='middle' />
+                                </Grid>
+                                <Grid size={12} pl={8}>
+                                    <Typography variant="h4">Skills</Typography>
+                                    <Typography variant="body2" color="textSecondary" sx={{ pt: 2 }}>
+                                        AI & Robotics, Computer Vision, Reinforcement Learning, Diffusion Models, Data Engineering, Cloud Infrastructure, PyTorch, Generative AI, Blockchain, Ethereum
+                                    </Typography>
+                                </Grid>
+                                <Grid size={12} py={4}>
+                                    <Divider variant='middle' />
+                                </Grid>
+                                <Grid size={12} pl={8}>
                                     <Typography variant="h4">Projects</Typography>
                                     <List>
+                                        <ListItem alignItems="flex-start">
+                                            <ListItemText primary="Robot Navigation and Exploration"
+                                                secondary={<Typography variant="body2" align='justify' color="textSecondary">Master's thesis project at ETH Zurich focused on autonomous navigation and exploration, combining diffusion models and reinforcement learning for decision-making in complex robotic environments.</Typography>} />
+                                        </ListItem>
                                         <ListItem alignItems="flex-start">
                                             <Box
                                                 component="img"
@@ -267,13 +309,13 @@ const Home = ({ unit }: { unit: string }) => {
                                     <Divider variant='middle' />
                                 </Grid>
                                 <Grid size={12} pl={8}>
-                                    <Typography variant="h4">Teaching Experiences</Typography>
+                                    <Typography variant="h4">Teaching & Lectures</Typography>
                                     <List>
                                         <ListItem alignItems="flex-start">
                                             <ListItemAvatar><a href='https://en.unito.it/'><Avatar src='/logoUnito.svg' /></a></ListItemAvatar>
                                             <ListItemText primary={<>
                                                 <Typography variant="subtitle1" align='justify'>
-                                                    Lecturer, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.mastercybersecuritytorino.it">Master in Cybersecurity</Link> - <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, 2024
+                                                    Lecturer, <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.mastercybersecuritytorino.it">Master in Cybersecurity</Link> - COREP / <Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://en.unito.it/">University of Turin</Link>, 2024
                                                 </Typography></>}
                                                 secondary={<Typography variant="body2" align='justify' color="textSecondary">Delivered lectures on IPFS's role in blockchain technology. Covered essential blockchain security topics and explored decentralized finance (DeFi).</Typography>} />
                                         </ListItem>
@@ -341,9 +383,9 @@ const Home = ({ unit }: { unit: string }) => {
                                         <Typography variant="caption" align="center">March 2025 - August 2025</Typography>
                                     </Grid>
                                     <Grid size={4} container direction="column" alignItems="center" spacing={0}>
-                                        <Typography variant="subtitle1" align="center">Graduate student in Artificial Intelligence</Typography>
+                                        <Typography variant="subtitle1" align="center">Master's degree in Artificial Intelligence</Typography>
                                         <Typography variant="subtitle1" align="center"><Link underline="hover" sx={{ color: theme.palette.primary.main, '&:hover': { color: theme.palette.secondary.dark } }} href="https://www.polito.it/en">Politecnico di Torino</Link></Typography>
-                                        <Typography variant="caption" align="center">Sept. 2022 - Present</Typography>
+                                        <Typography variant="caption" align="center">Sept. 2022 - Oct. 2025</Typography>
                                     </Grid>
                                     <Grid size={4} container direction="column" alignItems="center" spacing={0}>
                                         <Typography variant="subtitle1" align="center">B.Sc. in Computer Science</Typography>
