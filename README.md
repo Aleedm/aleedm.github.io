@@ -26,11 +26,7 @@ The production build is written to `dist/`. Preview serves the production build 
 
 ## Deployment
 
-```bash
-npm run deploy
-```
-
-This builds the site and publishes `dist/` to the `gh-pages` branch, preserving the existing branch-based publication method. The Vite base is `/` for `aleedm.github.io`; the build includes `.nojekyll`. Deployment is manual; running the development server does not publish anything.
+Pushing to `main` publishes the site: the `Publish site` workflow (`.github/workflows/pages.yml`) refreshes the Strava data, builds, and deploys to GitHub Pages. It also runs every 6 hours and can be started by hand from the Actions tab. The Vite base is `/` for `aleedm.github.io`; running the development server does not publish anything. The old `gh-pages` branch is no longer served.
 
 ## Structure
 
@@ -72,8 +68,6 @@ One-time setup:
 2. Put `STRAVA_CLIENT_ID` and `STRAVA_CLIENT_SECRET` in `.env.local`, then run `npm run strava:auth` and approve access. The refresh token is saved to `.env.local`.
 3. Run `npm run strava -- --wait` for the first full scan, and commit `data/strava-bests.json` and `public/data/strava.json`.
 4. In the repository settings: add the three values as Actions secrets; set Pages → Source to "GitHub Actions"; make `main` the default branch (scheduled workflows only run there).
-
-`npm run deploy` (the `gh-pages` branch) keeps working until step 4, after which the Action publishes instead.
 
 ## Analytics
 
