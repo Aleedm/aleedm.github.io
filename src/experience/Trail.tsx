@@ -37,6 +37,10 @@ function byAltitude(data: StravaData | null) {
   return [hiking, snowboarding, ...rest];
 }
 
+// While scrolling, the card of the pin nearest this line opens; cards drop below their pin,
+// so the line sits above the middle. Pins outside the band leave every card closed.
+const FOCUS = .32, BAND = [.1, .58];
+
 // Catmull-Rom through the slots, from the ridge above to the valley below.
 const points = [{ x: 86, y: -4 }, ...slots, { x: 52, y: 104 }];
 const path = points.slice(0, -1).map((p, i) => {
@@ -52,6 +56,9 @@ export function Trail() {
   const [open, setOpen] = useState<string | null>(null);
   const [elevations, setElevations] = useState<string[]>([]);
   const [order, setOrder] = useState(waypoints);
+  const orderRef = useRef(order);
+  orderRef.current = order;
+  const focusRef = useRef(-1);
 
   useEffect(() => { loadStrava().then((data) => setOrder(byAltitude(data))); }, []);
 
@@ -71,6 +78,18 @@ export function Trail() {
       const rect = host.getBoundingClientRect();
       const progress = still.matches ? 1 : Math.max(0, Math.min(1, (window.innerHeight * .65 - rect.top) / rect.height));
       revealRef.current!.setAttribute('height', String(10 + progress * 100));
+
+      let nearest = -1, distance = Infinity;
+      slots.forEach((slot, index) => {
+        const y = (rect.top + rect.height * slot.y / 100) / window.innerHeight;
+        if (y < BAND[0] || y > BAND[1]) return;
+        if (Math.abs(y - FOCUS) < distance) { nearest = index; distance = Math.abs(y - FOCUS); }
+      });
+      // Only act when the focus moves, so a hover or a tap in between is left alone.
+      if (nearest !== focusRef.current) {
+        focusRef.current = nearest;
+        setOpen(nearest < 0 ? null : orderRef.current[nearest].id);
+      }
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(reveal); };
     const observer = new ResizeObserver(() => { measure(); schedule(); });
