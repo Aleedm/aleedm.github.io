@@ -1,3 +1,5 @@
+import AES from 'crypto-js/aes';
+
 declare global {
   interface Window {
     sa_event?: ((name: string, metadata?: Record<string, string | number | boolean>) => void) & { q?: unknown[] };
@@ -26,4 +28,23 @@ export function installAnalytics() {
     script.src = `https://scripts.simpleanalyticscdn.com/${file}`;
     document.head.appendChild(script);
   });
+  notifyVisit();
+}
+
+// A Telegram message per visit, via a Make scenario that decrypts the payload with this key.
+const VISIT_HOOK = 'https://hook.eu2.make.com/uapah84dfs1jl3cfgvm89jkumvqf58tf';
+const VISIT_KEY = '5TfjOseEwf';
+
+async function notifyVisit() {
+  let place = { country: 'Unknown', region: 'Unknown', city: 'Unknown' };
+  try {
+    const info = await (await fetch('https://ipapi.co/json/')).json();
+    place = { country: info.country_name, region: info.region, city: info.city };
+  } catch { /* still notify, without a place */ }
+  track('Visitor', { c: place.city ?? 'Unknown', r: place.region ?? 'Unknown' });
+  fetch(VISIT_HOOK, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ d: AES.encrypt(JSON.stringify(place), VISIT_KEY).toString() }),
+  }).catch(() => {});
 }
