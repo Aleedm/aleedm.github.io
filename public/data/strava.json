@@ -23,12 +23,12 @@
     }
   },
   "latest": {
-    "name": "Corsa dell'ora di pranzo",
-    "date": "2026-11-03T11:02:40Z",
-    "distance": 6909.3,
-    "movingTime": 2221,
-    "elevation": 29,
-    "url": "https://www.strava.com/activities/20840475369"
+    "name": "Corsa pomeridiana",
+    "date": "2026-11-05T17:40:27Z",
+    "distance": 7054.2,
+    "movingTime": 3004,
+    "elevation": 0,
+    "url": "https://www.strava.com/activities/20872607202"
   },
   "activities": {
     "hiking": {
