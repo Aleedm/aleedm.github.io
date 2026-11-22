@@ -1,6 +1,6 @@
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
-const secretKey = '5TfjOseEwf';
+const secretKey = import.meta.env.VITE_VISIT_KEY;
 const encryptData = (data: { country: any; region: any; city: any; }) => {
     return CryptoJS.AES.encrypt(JSON.stringify(data), secretKey).toString();
 };
@@ -32,7 +32,7 @@ export const trackEvent = (eventName: any, metadata?: any) => {
 export const sendTelegramNotification = async (country: string, region: string, city: string) => {
     try {
         const encryptedMessage = encryptData({ country, region, city });
-        await axios.post(`https://hook.eu2.make.com/uapah84dfs1jl3cfgvm89jkumvqf58tf`, { d: encryptedMessage });
+        await axios.post(import.meta.env.VITE_VISIT_HOOK, { d: encryptedMessage });
     } catch (error) {
     }
 };

@@ -44,6 +44,9 @@ jobs:
             git push
           fi
       - run: npm run build
+        env:
+          VITE_VISIT_HOOK: ${{ secrets.VISIT_HOOK }}
+          VITE_VISIT_KEY: ${{ secrets.VISIT_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

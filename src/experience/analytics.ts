@@ -32,10 +32,13 @@ export function installAnalytics() {
 }
 
 // A Telegram message per visit, via a Make scenario that decrypts the payload with this key.
-const VISIT_HOOK = 'https://hook.eu2.make.com/uapah84dfs1jl3cfgvm89jkumvqf58tf';
-const VISIT_KEY = '5TfjOseEwf';
+// Both come from repository secrets at build time (see .github/workflows/pages.yml), so they
+// stay out of the source; without them, visits are simply not notified.
+const VISIT_HOOK: string | undefined = import.meta.env.VITE_VISIT_HOOK;
+const VISIT_KEY: string | undefined = import.meta.env.VITE_VISIT_KEY;
 
 async function notifyVisit() {
+  if (!VISIT_HOOK || !VISIT_KEY) return;
   let place = { country: 'Unknown', region: 'Unknown', city: 'Unknown' };
   try {
     const info = await (await fetch('https://ipapi.co/json/')).json();

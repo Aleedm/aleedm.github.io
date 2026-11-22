@@ -73,7 +73,7 @@ One-time setup:
 
 Production keeps the existing Simple Analytics `latest.js` and `auto-events.js` scripts, with queued custom events for chapter views (once per chapter per page load), chapter navigation, and motion control. Localhost and development do not load analytics. Existing automatic email, outbound-link, and download tracking remains available.
 
-The earlier IP geolocation and Make/Telegram visitor-notification utilities remain in the reference source and are not invoked by the new experience. No credentials are needed for the prototype.
+Each production visit sends a Telegram notification through a Make webhook (`src/experience/analytics.ts`). The webhook URL and its payload key are repository secrets (`VISIT_HOOK`, `VISIT_KEY`), passed to the build as `VITE_VISIT_HOOK` and `VITE_VISIT_KEY`; they still end up in the published JavaScript, as anything a browser calls must.
 
 ## PingPong
 
